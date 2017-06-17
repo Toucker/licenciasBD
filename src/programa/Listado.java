@@ -85,10 +85,7 @@ public class Listado extends javax.swing.JFrame {
         jButton3.setEnabled(m);        
         jButton4.setEnabled(m);
         jButton5.setEnabled(m);
-        jButton6.setEnabled(m);
-        jButton8.setEnabled(m);        
-        jButton9.setEnabled(m);
-        jButton10.setEnabled(m);        
+        jButton6.setEnabled(m);      
     }
     
     /**
@@ -118,9 +115,6 @@ public class Listado extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtarea = new javax.swing.JTextArea();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -200,7 +194,7 @@ public class Listado extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 180, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, 180, 20));
 
         jButton4.setBackground(new java.awt.Color(29, 87, 135));
         jButton4.setFont(new java.awt.Font("Arial Narrow", 1, 10)); // NOI18N
@@ -209,7 +203,7 @@ public class Listado extends javax.swing.JFrame {
         jButton4.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton4.setEnabled(false);
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 180, -1));
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 180, 20));
 
         jButton1.setBackground(new java.awt.Color(29, 87, 135));
         jButton1.setFont(new java.awt.Font("Arial Narrow", 1, 10)); // NOI18N
@@ -223,7 +217,7 @@ public class Listado extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 180, -1));
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 220, 180, 20));
 
         jButton3.setBackground(new java.awt.Color(29, 87, 135));
         jButton3.setFont(new java.awt.Font("Arial Narrow", 1, 10)); // NOI18N
@@ -232,7 +226,7 @@ public class Listado extends javax.swing.JFrame {
         jButton3.setBorder(javax.swing.BorderFactory.createCompoundBorder());
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton3.setEnabled(false);
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 180, -1));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 180, 20));
 
         jButton5.setBackground(new java.awt.Color(29, 87, 135));
         jButton5.setFont(new java.awt.Font("Arial Narrow", 1, 10)); // NOI18N
@@ -246,7 +240,7 @@ public class Listado extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 240, 180, -1));
+        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 180, 20));
 
         jButton6.setBackground(new java.awt.Color(29, 87, 135));
         jButton6.setFont(new java.awt.Font("Arial Narrow", 1, 10)); // NOI18N
@@ -260,7 +254,7 @@ public class Listado extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 180, -1));
+        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 180, 20));
 
         txtarea.setEditable(false);
         txtarea.setColumns(20);
@@ -269,33 +263,6 @@ public class Listado extends javax.swing.JFrame {
         jScrollPane1.setViewportView(txtarea);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 560, 40));
-
-        jButton8.setBackground(new java.awt.Color(29, 87, 135));
-        jButton8.setFont(new java.awt.Font("Arial Narrow", 1, 10)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Listado");
-        jButton8.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton8.setEnabled(false);
-        jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 180, -1));
-
-        jButton9.setBackground(new java.awt.Color(29, 87, 135));
-        jButton9.setFont(new java.awt.Font("Arial Narrow", 1, 10)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setText("listado");
-        jButton9.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton9.setEnabled(false);
-        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 260, 180, -1));
-
-        jButton10.setBackground(new java.awt.Color(29, 87, 135));
-        jButton10.setFont(new java.awt.Font("Arial Narrow", 1, 10)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setText("listado");
-        jButton10.setBorder(javax.swing.BorderFactory.createCompoundBorder());
-        jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jButton10.setEnabled(false);
-        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, 180, -1));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 580, 290));
 
@@ -449,15 +416,12 @@ public class Listado extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable grilla;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
