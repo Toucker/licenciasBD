@@ -122,9 +122,14 @@ public class Listado extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(640, 400));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
@@ -377,11 +382,11 @@ public class Listado extends javax.swing.JFrame {
         modelo.addColumn(titulos);
         ArrayList<String> bases = new ArrayList();
         bases = dao.listarBD();
-        String bd="";
-        Vector datos = new Vector(); 
+        String bd="";        
+        Object[] datos = new Object[1];
         for (int i = 0; i < bases.size(); i++) {
             bd = bases.get(i);
-            datos.add(bd);
+            datos[0] = bd;
             modelo.addRow(datos);
             txtarea.append(bd+"\n");
         }
@@ -389,13 +394,26 @@ public class Listado extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        String titulos="TABLAS DE LA BD";
         txtarea.setText("");
-        ArrayList<String> tablas = new ArrayList();
+        DefaultTableModel modelo = (DefaultTableModel) grilla.getModel();
+        int filas = modelo.getRowCount();
+        modelo.setColumnCount(0);
+        for (int i = 0; i < filas; i++) {
+            modelo.removeRow(0);
+        }
+        modelo.addColumn(titulos);
+        ArrayList<String> tablas = new ArrayList();        
         tablas = dao.listarTablas();
+        String tb="";        
+        Object[] datos = new Object[1];
         for (int i = 0; i < tablas.size(); i++) {
-            String tb = tablas.get(i);
+            tb = tablas.get(i);
+            datos[0] = tb;
+            modelo.addRow(datos);
             txtarea.append(tb+"\n");
         }
+        grilla.setModel(modelo);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -411,6 +429,16 @@ public class Listado extends javax.swing.JFrame {
             dao.listarLicencias(grilla);
         }
     }//GEN-LAST:event_jTextField1KeyReleased
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        Autentificacion a = new Autentificacion();
+        a.credencial(credencial);
+        a.setVisible(true); 
+        if (jMenu2.isEnabled()) {
+            dao.desconectar();
+        }
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

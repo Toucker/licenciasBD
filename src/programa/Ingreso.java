@@ -114,14 +114,18 @@ public class Ingreso extends javax.swing.JFrame {
         selfecha = new com.toedter.calendar.JDateChooser();
         btnreg = new javax.swing.JButton();
         btnres = new javax.swing.JButton();
-        btnmen = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("Arial Narrow", 1, 36)); // NOI18N
@@ -261,16 +265,6 @@ public class Ingreso extends javax.swing.JFrame {
         });
         getContentPane().add(btnres, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 140, -1));
 
-        btnmen.setFont(new java.awt.Font("Arial Narrow", 1, 12)); // NOI18N
-        btnmen.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ico_menu.png"))); // NOI18N
-        btnmen.setText("MENU");
-        btnmen.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnmenActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnmen, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, 80, -1));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/fingreso.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -301,17 +295,6 @@ public class Ingreso extends javax.swing.JFrame {
     private void optrecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optrecActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_optrecActionPerformed
-
-    private void btnmenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnmenActionPerformed
-        Autentificacion a = new Autentificacion();
-        limpiarCasillas();
-        a.credencial(credencial);
-        a.setVisible(true); 
-        if (existe == true) {
-            dao.desconectar();
-        }
-        this.setVisible(false);
-    }//GEN-LAST:event_btnmenActionPerformed
 
     private void txtrut1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtrut1KeyTyped
         char c = evt.getKeyChar();
@@ -399,7 +382,6 @@ public class Ingreso extends javax.swing.JFrame {
                     }else{
                         btnreg.setEnabled(false);
                         btnres.setEnabled(false);
-                        btnmen.setEnabled(true);
                     }    
                 }else{ 
                     JOptionPane.showMessageDialog(this, "Los datos no fueron guardados.");                    
@@ -413,7 +395,6 @@ public class Ingreso extends javax.swing.JFrame {
                 }else{
                     btnreg.setEnabled(false);
                     btnres.setEnabled(false); 
-                    btnmen.setEnabled(true);
                 }
             }
         }
@@ -425,7 +406,6 @@ public class Ingreso extends javax.swing.JFrame {
         activar2(true);
         txtcont.setText(Integer.toString(dao.mostrarCantidadReg()));
         btnres.setEnabled(false);
-        btnmen.setEnabled(true);
     }//GEN-LAST:event_btnresActionPerformed
 
     private void jMenu1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu1MouseClicked
@@ -440,7 +420,6 @@ public class Ingreso extends javax.swing.JFrame {
                     jMenu2.setEnabled(true); 
                     txtrut1.setEnabled(true);
                     txtrut2.setEnabled(true);
-                    btnmen.setEnabled(false);
             }            
         }
     }//GEN-LAST:event_jMenu1MouseClicked
@@ -456,7 +435,6 @@ public class Ingreso extends javax.swing.JFrame {
                 activar(false);
                 jMenu2.setEnabled(false);
                 jMenu1.setEnabled(true);
-                btnmen.setEnabled(true);
                 btnreg.setEnabled(false);
                 btnres.setEnabled(false);
                 txtcont.setText("");
@@ -464,9 +442,19 @@ public class Ingreso extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenu2MouseClicked
 
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        Autentificacion a = new Autentificacion();
+        limpiarCasillas();
+        a.credencial(credencial);
+        a.setVisible(true); 
+        if (existe == true) {
+            dao.desconectar();
+        }
+        this.dispose();
+    }//GEN-LAST:event_formWindowClosed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnmen;
     private javax.swing.JButton btnreg;
     private javax.swing.JButton btnres;
     private javax.swing.JComboBox<String> cboenf;

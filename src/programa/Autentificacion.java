@@ -22,7 +22,7 @@ public class Autentificacion extends javax.swing.JFrame {
     
     int cont1;  
         
-        
+    Registrar r = new Registrar();  
     Ingreso i = new Ingreso();    
     Listado l = new Listado();  
     
@@ -205,7 +205,10 @@ public class Autentificacion extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu6 = new javax.swing.JMenu();
-        jRadioButtonMenuItem1 = new javax.swing.JRadioButtonMenuItem();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu8 = new javax.swing.JMenu();
+        jMenu9 = new javax.swing.JMenu();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -423,16 +426,31 @@ public class Autentificacion extends javax.swing.JFrame {
             }
         });
 
-        jRadioButtonMenuItem1.setFont(new java.awt.Font("Arial Narrow", 0, 12)); // NOI18N
-        jRadioButtonMenuItem1.setSelected(true);
-        jRadioButtonMenuItem1.setText("Mantenedor de Usuarios");
-        jRadioButtonMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ico_usu.png"))); // NOI18N
-        jRadioButtonMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonMenuItem1ActionPerformed(evt);
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ico_usu.png"))); // NOI18N
+        jMenu3.setText("Mantenedor de Usuarios");
+        jMenu3.setFont(new java.awt.Font("Arial Narrow", 0, 12)); // NOI18N
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
             }
         });
-        jMenu6.add(jRadioButtonMenuItem1);
+        jMenu6.add(jMenu3);
+
+        jMenu7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ico_backup.png"))); // NOI18N
+        jMenu7.setText("Respaldos");
+        jMenu7.setFont(new java.awt.Font("Arial Narrow", 0, 12)); // NOI18N
+
+        jMenu8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ico_import.png"))); // NOI18N
+        jMenu8.setText("Importar");
+        jMenu8.setFont(new java.awt.Font("Arial Narrow", 0, 12)); // NOI18N
+        jMenu7.add(jMenu8);
+
+        jMenu9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ico_export.png"))); // NOI18N
+        jMenu9.setText("Exportar");
+        jMenu9.setFont(new java.awt.Font("Arial Narrow", 0, 12)); // NOI18N
+        jMenu7.add(jMenu9);
+
+        jMenu6.add(jMenu7);
 
         jMenuBar1.add(jMenu6);
 
@@ -557,7 +575,7 @@ public class Autentificacion extends javax.swing.JFrame {
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         i.credencial(credencial);
         i.setVisible(true);
-        setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
@@ -622,18 +640,13 @@ public class Autentificacion extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenu6MouseClicked
 
-    private void jRadioButtonMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonMenuItem1ActionPerformed
-        Registrar r = new Registrar();
-        //boolean revisar = d.verificarTabla("especialidades");
-
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
         r.credencial(credencial);
         r.setEnabled(true);
         r.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_jRadioButtonMenuItem1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jMenu3MouseClicked
 
- 
-    
     /**
      * @param args the command line arguments
      */
@@ -699,15 +712,18 @@ public class Autentificacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JMenu jMenu8;
+    private javax.swing.JMenu jMenu9;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JRadioButtonMenuItem jRadioButtonMenuItem1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel logo;
