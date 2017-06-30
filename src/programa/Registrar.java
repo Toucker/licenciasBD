@@ -179,7 +179,7 @@ public class Registrar extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, 130, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 110, -1));
 
         jButton2.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
         jButton2.setText("CANCELAR");
@@ -189,7 +189,7 @@ public class Registrar extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 320, -1, -1));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, -1));
 
         jButton3.setFont(new java.awt.Font("Arial Narrow", 0, 11)); // NOI18N
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ico_eliminar.png"))); // NOI18N

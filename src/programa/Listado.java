@@ -120,7 +120,6 @@ public class Listado extends javax.swing.JFrame {
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(640, 400));
@@ -298,16 +297,6 @@ public class Listado extends javax.swing.JFrame {
         });
         jMenuBar1.add(jMenu2);
 
-        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/ico_menu.png"))); // NOI18N
-        jMenu3.setText("Menu");
-        jMenu3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenu3MouseClicked(evt);
-            }
-        });
-        jMenuBar1.add(jMenu3);
-
         setJMenuBar(jMenuBar1);
 
         pack();
@@ -315,16 +304,14 @@ public class Listado extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         dao.listarUsuariosPerfil(grilla);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
-        if(jMenu3.isEnabled()){
-            Autentificacion a = new Autentificacion();
-            a.credencial(credencial);
-            a.setVisible(true);
-            dispose();            
+        txtarea.setText("");
+        ArrayList<Usuario> lista2 = new ArrayList();
+        lista2 = dao.listarUsuarios();
+        for (int i = 0; i < lista2.size(); i++) {
+            Usuario u = lista2.get(i);
+            txtarea.append(u.getUsuario()+" "+u.getNombre()+" "+u.getApellido()+" "+u.getPerfil()+"\n");
         }
-    }//GEN-LAST:event_jMenu3MouseClicked
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         if(jMenu1.isEnabled()){
@@ -348,7 +335,6 @@ public class Listado extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "<html><b> ¡Has sido conectado con éxito! </b></html>");  
                 jMenu1.setEnabled(false);
                 jMenu2.setEnabled(true);
-                jMenu3.setEnabled(false);
             }            
         }
     }//GEN-LAST:event_jMenu1MouseClicked
@@ -364,7 +350,6 @@ public class Listado extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "<html><b> ¡Has sido desconectado con éxito! </b></html>");  
                 jMenu2.setEnabled(false);
                 jMenu1.setEnabled(true);
-                jMenu3.setEnabled(true);
                 showM(false);
             }            
         }
@@ -418,6 +403,13 @@ public class Listado extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         dao.listarUsuariosEspecialiad(grilla);
+        txtarea.setText("");
+        ArrayList<Usuario> lista2 = new ArrayList();
+        lista2 = dao.listarUsuarios();
+        for (int i = 0; i < lista2.size(); i++) {
+            Usuario u = lista2.get(i);
+            txtarea.append(u.getUsuario()+" "+u.getNombre()+" "+u.getApellido()+" "+u.getEspecialidad()+"\n");
+        }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
@@ -457,7 +449,6 @@ public class Listado extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

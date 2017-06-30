@@ -478,6 +478,69 @@ public class DAO {
             javax.swing.JOptionPane.showMessageDialog(null,"Error al listar al Motor :"+e.getMessage(),"Error",0);         
         }
     }
+    public ArrayList<Usuario> listarUsuarios(){
+        String usu,nom,ape,perf,esp;
+        try{
+            ArrayList<Usuario> lista = new ArrayList();
+            String sql = "select usuarios.usu_nom,usuarios.usu_ape,usuarios.usuario,perfiles.perfil,especialidades.especialidad from usuarios,perfiles,especialidades where usuarios.perfil=perfiles.per_id and usuarios.especialidad=especialidades.esp_id";
+            sen = con.createStatement();
+            rs = sen.executeQuery(sql);
+            while(rs.next()){
+                usu = rs.getString("usuarios.usuario");
+                nom = rs.getString("usuarios.usu_nom");
+                ape = rs.getString("usuarios.usu_ape");
+                perf = rs.getString("perfiles.perfil");
+                esp = rs.getString("especialidades.especialidad");
+                Usuario u = new Usuario(usu,nom,ape,perf,esp);
+                lista.add(u);
+            }
+            sen.close();
+            return lista;
+        }catch(SQLException e){
+            System.out.println(e);
+        }catch(Exception e){
+            System.out.println(e);
+        }
+        return null;
+    }
+    
+    public void listarUsuariosEspecialidad(javax.swing.JTable grilla){   
+        String titulos[]= new String[4];
+        titulos[0] ="Usuario";
+        titulos[1] ="Nombre";
+        titulos[2] ="Apellido";
+        titulos[3] ="Especialidad";
+        try{
+            
+            DefaultTableModel modelo = (DefaultTableModel) grilla.getModel();
+            int filas = modelo.getRowCount();
+            modelo.setColumnCount(0);
+            for (int i = 0; i < filas; i++) {
+                modelo.removeRow(0);
+            }
+            for (int i = 0; i < 4; i++) {
+                modelo.addColumn(titulos[i]);
+            }
+        
+            Object[] datos = new Object[5];
+            String sql = "select usuarios.usu_nom,usuarios.usu_ape,usuarios.usuario,perfiles.perfil from usuarios,perfiles where usuarios.especialidad=especialidades.esp_id";
+            sen = con.createStatement();
+            rs = sen.executeQuery(sql);
+            while(rs.next()){
+                datos[0] = rs.getString("usuarios.usuario");
+                datos[1] = rs.getString("usuarios.usu_nom");
+                datos[2] = rs.getString("usuarios.usu_ape");
+                datos[3] = rs.getString("especialidades.especialidades");
+                modelo.addRow(datos);
+            }
+            grilla.setModel(modelo);
+            sen.close();
+        }catch(SQLException e){
+            javax.swing.JOptionPane.showMessageDialog(null,"Error al listar al Motor de Datos MySQL:"+e.getMessage(),"Error",0);         
+        }catch(Exception e){
+            javax.swing.JOptionPane.showMessageDialog(null,"Error al listar al Motor :"+e.getMessage(),"Error",0);         
+        }
+    } 
     
     public void listarUsuariosPerfil(javax.swing.JTable grilla){   
         String titulos[]= new String[4];

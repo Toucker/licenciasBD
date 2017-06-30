@@ -25,6 +25,15 @@ public class Usuario {
         this.nom = nom;
     }
 
+    public Usuario(String usuario, String nombre, String apellido, String perfil, String especialidad) {
+        this.usuario = usuario;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.perfil = perfil;
+        this.especialidad = especialidad;
+    }
+
+    
    
     
     public Usuario(String usuario, String nombre, String apellido, String password, String perfil, String especialidad) {
