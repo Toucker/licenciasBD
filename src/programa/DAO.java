@@ -62,7 +62,10 @@ public class DAO {
         "constraint PK_Usuario PRIMARY KEY (`usu_id`),"+
         "constraint FK_Perfiles FOREIGN KEY(`perfil`) REFERENCES perfiles(`per_id`),"+
         "constraint FK_Especialidad FOREIGN KEY(`especialidad`) REFERENCES especialidades(`esp_id`));";
+        //--// 
         statement.executeUpdate(sql_tbl3);
+        sql_bd = "CREATE DATABASE IF NOT EXISTS `licencias_historico`;";
+        statement.executeUpdate(sql_bd);       
     }    
     
     private void consultarDBA(){
@@ -214,6 +217,29 @@ public class DAO {
             "`isapre` VARCHAR(20) NOT NULL DEFAULT '1',"+
             "`fecha` char(10) NOT NULL DEFAULT '1',"+  
             "`estado` VARCHAR(15) NOT NULL DEFAULT '1',"+ 
+            "constraint PK_Licencias PRIMARY KEY (`id`));";         
+            statement.executeUpdate(sql_tbl);
+            statement.close(); 
+        }catch(SQLException e){
+            javax.swing.JOptionPane.showMessageDialog(null,"Error al registrar al Motor de Datos MySQL:"+e.getMessage(),"Error",0); 
+        }catch(Exception e){
+            javax.swing.JOptionPane.showMessageDialog(null,"Error al registrar al Motor :"+e.getMessage(),"Error",0); 
+        }
+    }
+    
+    public void createTableLicenciasHistorico(){
+        try{
+            statement  = connection.createStatement();
+            statement.execute("use licencias_historico");
+            String sql_tbl = "CREATE TABLE IF NOT EXISTS `licencia_historico` ("+
+            "`id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT,"+
+            "`rut` CHAR(10) NOT NULL,"+
+            "`enfermedad` VARCHAR(25) NOT NULL,"+
+            "`dias` VARCHAR(20) DEFAULT NULL,"+
+            "`isapre` VARCHAR(20) NOT NULL DEFAULT '1',"+
+            "`fecha` char(10) NOT NULL DEFAULT '1',"+  
+            "`estado` VARCHAR(15) NOT NULL DEFAULT '1',"+ 
+            "`razon_eli` VARCHAR(40) NOT NULL DEFAULT '1',"+        
             "constraint PK_Licencias PRIMARY KEY (`id`));";         
             statement.executeUpdate(sql_tbl);
             statement.close(); 
@@ -454,7 +480,7 @@ public class DAO {
             for (int i = 0; i < filas; i++) {
                 modelo.removeRow(0);
             }
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i <6; i++) {
                 modelo.addColumn(titulos[i]);
             }
             Object[] datos = new Object[6];

@@ -372,6 +372,7 @@ public class Ingreso extends javax.swing.JFrame {
                 int dialogResult = JOptionPane.showConfirmDialog(this, "<html> <b> ¡No existe la tabla! </b><br>¿Desea crearla?</html>", "", JOptionPane.YES_NO_OPTION);
                 if (dialogResult == 0){ 
                     dao.createTableLicencias();
+                    dao.createTableLicenciasHistorico();
                     registrarLicencia();
                     int dialogResult2 = JOptionPane.showConfirmDialog(this, "<html> <b> ¡Datos guardados! </b><br>¿Desea realizar un nuevo ingreso?</html>", "", JOptionPane.YES_NO_OPTION);
                     if (dialogResult2 == 0){
